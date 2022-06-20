@@ -1,19 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './css/index.css';
+import Slide from "./components/slide-component-class";
+import SlideShow from "./components/slide-show-class";
+import {bodySlideStyle, listUnstyled} from "./slide.style";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+let node = (
+    <SlideShow>
+        <Slide heading="Styling in React" page={{current: 1, total: 2}}>
+            <ul style={{...bodySlideStyle, ...listUnstyled}}>
+                <li>You can style using css classes</li>
+                <li>You can style using inline styling</li>
+            </ul>
+        </Slide>
+        <Slide heading="Props in React" page={{current: 2, total: 2}}>
+            <p style={bodySlideStyle}>
+                Props are like attributes for ReactNodes/Elements. It is used to customize the content in a component
+            </p>
+        </Slide>
+        <Slide heading="State in React" page={{current: 2, total: 2}}>
+            <p style={bodySlideStyle}>
+                States are used to dynamically change the data in the component on some trigger.
+            </p>
+        </Slide>
+    </SlideShow>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// root.render(
+//     <React.StrictMode>
+//         <Slide/>
+//     </React.StrictMode>
+// )
+root.render(node);

@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 2em 6em 2em 2em;
+}
+
+.slide{
+    width: 100%;
+    height: calc(100vh - 4em);
+    padding: 4em;
+    border-radius: 2em;
+    background-color: darkgoldenrod;
+    margin: 2em;
+}
